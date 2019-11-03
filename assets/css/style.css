@@ -1,4 +1,37 @@
+html, body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  background-image: url(../img/night-sky.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
 canvas {
-  background-color: #eee;
+  background-color: rgba(230, 230, 230, 0.3);
+  display: block;
+  margin: auto;
+  border: 6px double white;
+  border-radius: 3px;
+}
+
+div.header {
+  width: 650px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 20px auto 0;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.5rem;
+  color: white;
 }
 /*# sourceMappingURL=style.css.map */

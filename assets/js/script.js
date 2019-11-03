@@ -18,6 +18,7 @@ let CX = parseInt(Math.random()*630);
 let CY = 5;
 
 let score = 0;
+let setScore = document.getElementById("score");
 
 function setTarget(){
     ctx.drawImage(cible,CX,CY);
@@ -70,6 +71,7 @@ window.addEventListener("keydown",(e)=>{
                 CX = parseInt(Math.random()*630);
                 setTarget();
                 console.log(score);
+                setScore.innerHTML = score;
             }
         },50);
     }
