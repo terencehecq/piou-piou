@@ -13,10 +13,23 @@
     <div class="header">
         <p>Piou Piou</p>
         <p>Score : <span id="score">0</span></p>
+        <p id="chrono">00' 00" 000</p>
     </div>
 
-    <div class="start"><button id="start-game">Start game</button></div>
+    <div class="start" id="start-game">
+        <p id="time">You shoot 10 in <span id="timeHere"></span></p>
+        <button id ="button">Start game</button>
+    </div>
     <canvas id="canvas" width="700px" height="400px"></canvas>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+    </table>
 
     <!-- <img src="assets/img/vaisseau.png" alt="vaisseau" id="vaisseau">
     <img src="assets/img/bullet.png" alt="Projectile" id="bullet">

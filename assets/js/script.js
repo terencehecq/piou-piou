@@ -7,7 +7,7 @@ vaisseau.src = 'assets/img/vaisseau.png';
 let bullet = new Image();
 bullet.src = 'assets/img/bullet.png'
 let cible = new Image();
-cible.src = 'assets/img/cible.png';
+cible.src = 'assets/img/ennemi.png';
 
 let X = 700;
 let Y = 400;
@@ -19,6 +19,7 @@ let CX = parseInt(Math.random()*630);
 let CY = 5;
 
 let score = 0;
+let scoreToGet = 10;
 let setScore = document.getElementById("score");
 
 function setTarget(){
@@ -31,6 +32,25 @@ function game(){
     
     score = 0;
     setScore.innerHTML = score;
+    
+    let chronoStart = Date.now()
+    let toShow = `00' 00" 000`;
+    
+    let time = setInterval(()=>{
+        let chrono = Date.now() - chronoStart;
+
+        let mins = Math.floor(chrono/60000)
+        let secs = Math.floor((chrono/1000)%60);
+        let chronoToString = chrono.toString();
+        let decis = chronoToString.charAt((chronoToString.length)-3)
+        let centis = chronoToString.charAt((chronoToString.length)-2);
+
+
+        if(secs < 10){toShow = `0${mins}' O${secs}" ${decis}${centis}0`}
+        else{toShow = `0${mins}' ${secs}" ${decis}${centis}0`}
+
+        document.getElementById("chrono").innerHTML = toShow;
+    },10)
 
     ctx.drawImage(vaisseau, VX,VY);
     setTarget();
@@ -42,14 +62,14 @@ function game(){
         
         if(key == 37){
             if(VX > 9){
-                VX = VX-15;
+                VX = VX-18;
                 ctx.clearRect(0, VY, canvas.width, 60);
                 setVaisseau = ctx.drawImage(vaisseau, VX,VY);
             }
         }
         if(key == 39){
             if(VX < X-59){
-                VX = VX+15;
+                VX = VX+18;
                 ctx.clearRect(0, VY, canvas.width, 60);
                 setVaisseau = ctx.drawImage(vaisseau, VX,VY);
             }
@@ -61,7 +81,7 @@ function game(){
 
             let bulletShot = setInterval(()=>{
                 if(BY > -32){ 
-                    ctx.clearRect(BX, BY, 10, 32);
+                    ctx.clearRect(BX, BY, 11, 32);
                     ctx.drawImage(bullet, BX,BY);
                     
                     BY = BY-10;
@@ -73,15 +93,19 @@ function game(){
                     score +=1;
                     setScore.innerHTML = score;
                     clearInterval(bulletShot);
-                    ctx.clearRect(BX, BY, 10, 32);
+                    ctx.clearRect(BX, BY, 11, 32);
                     ctx.clearRect(0, 0, canvas.width, 30);
                     CX = parseInt(Math.random()*630);
                     setTarget();
-
-                    if (score == 10){
+                    
+                    if (score == scoreToGet){
                         ctx.clearRect(0, 0, canvas.width, 340);
+                        document.getElementById("button").innerHTML = "Restart";
                         document.getElementById("start-game").style.visibility = "visible";
+                        document.getElementById("time").style.display = "inline";
+                        document.getElementById("timeHere").innerHTML = toShow;
                         window.removeEventListener("keydown", playing);
+                        clearInterval(time)
                         return;
                     }
                 }
@@ -89,6 +113,13 @@ function game(){
         }
     })
 }
+
+
+function chrono(){
+    
+}
+
+// chrono();
 
 document.getElementById("start-game").addEventListener("click", ()=>{
     game()
