@@ -1,3 +1,4 @@
+
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext('2d');
 
@@ -25,57 +26,70 @@ function setTarget(){
 }
 
 
-window.addEventListener("load",()=>{
-ctx.drawImage(vaisseau, VX,VY);
- setTarget();
-
-})
-
-
-window.addEventListener("keydown",(e)=>{
+function game(){
+    document.getElementById("start-game").style.visibility = "hidden";
     
-    let key = e.keyCode;
+    score = 0;
+    setScore.innerHTML = score;
+
+    ctx.drawImage(vaisseau, VX,VY);
+    setTarget();
     
-    if(key == 37){
-        if(VX > 9){
-            VX = VX-10;
-            ctx.clearRect(0, VY, canvas.width, 60);
-            setVaisseau = ctx.drawImage(vaisseau, VX,VY)
-        }
-    }
-    if(key == 39){
-        if(VX < X-59){
-            VX = VX+10;
-            ctx.clearRect(0, VY, canvas.width, 60);
-            setVaisseau = ctx.drawImage(vaisseau, VX,VY)
-        }
-    }
-    if(key == 32){
+    window.addEventListener("keydown",function playing(e){
+
+    
+        let key = e.keyCode;
         
-        let BY = VY-32;
-        let BX = VX+20;
-
-        let bulletShot = setInterval(()=>{
-            if(BY > -32){ 
-                ctx.clearRect(BX, BY, 10, 32);
-                ctx.drawImage(bullet, BX,BY);
-                
-                BY = BY-10;
+        if(key == 37){
+            if(VX > 9){
+                VX = VX-15;
+                ctx.clearRect(0, VY, canvas.width, 60);
+                setVaisseau = ctx.drawImage(vaisseau, VX,VY);
             }
-
-            if(BX > CX-10 && BX <CX+70 && BY<CY+15){
-                score +=1;
-                clearInterval(bulletShot);
-                ctx.clearRect(BX, BY, 10, 32);
-                ctx.clearRect(0, 0, canvas.width, 30);
-                CX = parseInt(Math.random()*630);
-                setTarget();
-                console.log(score);
-                setScore.innerHTML = score;
+        }
+        if(key == 39){
+            if(VX < X-59){
+                VX = VX+15;
+                ctx.clearRect(0, VY, canvas.width, 60);
+                setVaisseau = ctx.drawImage(vaisseau, VX,VY);
             }
-        },50);
-    }
+        }
+        if(key == 32){
+            
+            let BY = VY-32;
+            let BX = VX+20;
 
-    
+            let bulletShot = setInterval(()=>{
+                if(BY > -32){ 
+                    ctx.clearRect(BX, BY, 10, 32);
+                    ctx.drawImage(bullet, BX,BY);
+                    
+                    BY = BY-10;
+                } else{
+                    clearInterval(bulletShot);
+                }
 
+                if(BX > CX-10 && BX <CX+70 && BY<CY+15){
+                    score +=1;
+                    setScore.innerHTML = score;
+                    clearInterval(bulletShot);
+                    ctx.clearRect(BX, BY, 10, 32);
+                    ctx.clearRect(0, 0, canvas.width, 30);
+                    CX = parseInt(Math.random()*630);
+                    setTarget();
+
+                    if (score == 10){
+                        ctx.clearRect(0, 0, canvas.width, 340);
+                        document.getElementById("start-game").style.visibility = "visible";
+                        window.removeEventListener("keydown", playing);
+                        return;
+                    }
+                }
+            },30);
+        }
+    })
+}
+
+document.getElementById("start-game").addEventListener("click", ()=>{
+    game()
 })

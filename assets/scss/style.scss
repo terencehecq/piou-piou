@@ -10,7 +10,33 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     height:100vh;
+    font-family: 'Press Start 2P', cursive;
+    
+}
 
+div.start{
+    position: absolute;
+    width:100%;
+    height:400px;
+    margin:170px auto;
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    
+    button{
+        width:150px;
+        height:50px;
+        border:2px solid white;
+        border-radius:5px;
+        font-family: 'Press Start 2P', cursive;
+        color:white;
+        background-color: rgb(0, 0, 0);
+    }
+
+    button:hover{
+        color:#40cfbc;
+        border-color:#40cfbc;
+    }
 }
 
 canvas{
@@ -25,8 +51,7 @@ div.header{
     width: 650px;
     display:flex;
     justify-content: space-between;
-    margin:20px auto 0;
-    font-family: 'Press Start 2P', cursive;
     font-size: 1.5rem;
     color:white;
+    margin:20px auto 0;
 }
