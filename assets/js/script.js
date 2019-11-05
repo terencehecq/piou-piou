@@ -23,9 +23,10 @@ let scoreToGet = 10;
 let setScore = document.getElementById("score");
 
 let startSound = new Audio('assets/sound/press-start.wav');
-let fire = new Audio('assets/sound/oof.wav');
+let fire = new Audio('assets/sound/shoot.wav');
 let hereWeGo = new Audio('assets/sound/here-we-go.wav');
-window.addEventListener("load",()=>{startSound.play();})
+let shot = new Audio('assets/sound/oof.wav');
+
 
 function setTarget(){
     ctx.drawImage(cible,CX,CY);
@@ -109,12 +110,14 @@ function game(){
 
                 if(BX > CX-10 && BX <CX+70 && BY<CY+15){
                     score +=1;
+                    shot.play();
                     setScore.innerHTML = score;
                     clearInterval(bulletShot);
                     ctx.clearRect(BX, BY, 11, 32);
                     ctx.clearRect(0, 0, canvas.width, 30);
                     CX = parseInt(Math.random()*630);
                     setTarget();
+                    shot.currentTime = 0;
                     
                     if (score == scoreToGet){
                         ctx.clearRect(0, 0, canvas.width, 340);
@@ -139,7 +142,10 @@ function chrono(){
     
 }
 
-// chrono();
+
+// window.addEventListener("load", ()=>{
+//     startSound.play();
+// })
 
 document.getElementById("button").addEventListener("click", ()=>{
     hereWeGo.play();
