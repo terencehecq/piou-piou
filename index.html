@@ -19,16 +19,47 @@
     <div class="start" id="start-game">
         <p id="time">You shoot 10 in <span id="timeHere"></span></p>
         <button id ="button">Start game</button>
+        
+        <div class="form" id="form">
+            <input type="text" maxlength="15" id="name" placeholder="Your name">
+            <input type="button" value="OK" id="sendName" class="sendName">
+        </div>
     </div>
     <canvas id="canvas" width="700px" height="400px"></canvas>
 
     <table>
         <thead>
             <tr>
+                <th class="rank">#</th>
                 <th>Name</th>
                 <th>Score</th>
             </tr>
         </thead>
+        <tr>
+            <td class="rank">1</td>
+            <td id="name1"></td>
+            <td id="score1"></td>
+        </tr>
+        <tr>
+            <td class="rank">2</td>
+            <td id="name2"></td>
+            <td id="score2"></td>
+        </tr>
+        <tr>
+            <td class="rank">3</td>
+            <td id="name3"></td>
+            <td id="score3"></td>
+        </tr>
+        <tr>
+            <td class="rank">4</td>
+            <td id="name4"></td>
+            <td id="score4"></td>
+        </tr>
+        <tr>
+            <td class="rank">5</td>
+            <td id="name5"></td>
+            <td id="score5"></td>
+        </tr>
     </table>
 
     <!-- <img src="assets/img/vaisseau.png" alt="vaisseau" id="vaisseau">

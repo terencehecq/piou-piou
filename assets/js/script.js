@@ -19,12 +19,23 @@ let CX = parseInt(Math.random()*630);
 let CY = 5;
 
 let score = 0;
-let scoreToGet = 10;
+let scoreToGet = 2;
 let setScore = document.getElementById("score");
 
 function setTarget(){
     ctx.drawImage(cible,CX,CY);
 }
+
+let names=[];
+let scores=[];
+
+function fillTable(){
+    document.getElementById("sendName").addEventListener("click",()=>{
+
+        let name = document.getElementById("name").value;
+        console.log(name);
+    })
+} fillTable();
 
 
 function game(){
@@ -103,6 +114,7 @@ function game(){
                         document.getElementById("button").innerHTML = "Restart";
                         document.getElementById("start-game").style.visibility = "visible";
                         document.getElementById("time").style.display = "inline";
+                        document.getElementById("form").style.display = "block";
                         document.getElementById("timeHere").innerHTML = toShow;
                         window.removeEventListener("keydown", playing);
                         clearInterval(time)
@@ -121,6 +133,6 @@ function chrono(){
 
 // chrono();
 
-document.getElementById("start-game").addEventListener("click", ()=>{
+document.getElementById("button").addEventListener("click", ()=>{
     game()
 })

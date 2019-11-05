@@ -37,6 +37,7 @@ div.start p {
       -ms-grid-row-align: center;
       align-self: center;
   color: yellow;
+  margin-bottom: 40px;
 }
 
 div.start button {
@@ -94,5 +95,39 @@ table th {
 table td {
   border: 2px solid white;
   color: white;
+}
+
+table .rank {
+  width: 5%;
+  text-align: center;
+}
+
+div.form {
+  margin: 40px auto 0;
+  display: none;
+}
+
+div.form input {
+  margin: 0;
+  line-height: 1.5rem;
+  color: black;
+  background-color: #fff;
+  font-family: 'Press Start 2P', cursive;
+  width: 170px;
+  border: 2px solid black;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+div.form .sendName {
+  width: 40px;
+  background-color: black;
+  color: white;
+  border-color: white;
+}
+
+div.form .sendName:hover {
+  color: #40cfbc;
+  border-color: #40cfbc;
 }
 /*# sourceMappingURL=style.css.map */

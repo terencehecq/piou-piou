@@ -27,6 +27,7 @@ div.start{
         display:none;
         align-self:center;
         color:yellow;
+        margin-bottom: 40px;
     }
     
     button{
@@ -78,5 +79,40 @@ table{
     td{
         border:2px solid white;
         color:white;
+    }
+
+    .rank{
+        width:5%;
+        text-align:center;
+    }
+}
+
+div.form{
+    margin:40px auto 0;
+    display:none;
+
+    input{
+        margin:0;
+        line-height: 1.5rem;
+        color:black;
+        background-color: #fff;
+        font-family: 'Press Start 2P', cursive;
+        width:170px;
+        border: 2px solid black;
+        border-radius: 3px;
+        padding:5px;
+
+    }
+
+    .sendName{
+        width:40px;
+        background-color: black;
+        color:white;
+        border-color: white;
+    }
+
+    .sendName:hover{
+        color:#40cfbc;
+        border-color:#40cfbc;
     }
 }
