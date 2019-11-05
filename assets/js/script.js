@@ -19,8 +19,13 @@ let CX = parseInt(Math.random()*630);
 let CY = 5;
 
 let score = 0;
-let scoreToGet = 2;
+let scoreToGet = 10;
 let setScore = document.getElementById("score");
+
+let startSound = new Audio('assets/sound/press-start.wav');
+let fire = new Audio('assets/sound/oof.wav');
+let hereWeGo = new Audio('assets/sound/here-we-go.wav');
+window.addEventListener("load",()=>{startSound.play();})
 
 function setTarget(){
     ctx.drawImage(cible,CX,CY);
@@ -89,6 +94,8 @@ function game(){
             
             let BY = VY-32;
             let BX = VX+20;
+            fire.currentTime = 0;
+            fire.play();
 
             let bulletShot = setInterval(()=>{
                 if(BY > -32){ 
@@ -117,7 +124,8 @@ function game(){
                         document.getElementById("form").style.display = "block";
                         document.getElementById("timeHere").innerHTML = toShow;
                         window.removeEventListener("keydown", playing);
-                        clearInterval(time)
+                        clearInterval(time);
+                        startSound.play();
                         return;
                     }
                 }
@@ -134,5 +142,6 @@ function chrono(){
 // chrono();
 
 document.getElementById("button").addEventListener("click", ()=>{
+    hereWeGo.play();
     game()
 })
