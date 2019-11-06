@@ -19,6 +19,9 @@
 - Tableau des meilleurs temps avec saisie du nom, enregistré en _Local Storage_ 
 
 
+
+
+
 Exercice réalisé dans le cadre de ma formation en développement web à **BeCode Charleroi**
 
 Dernière modification le 06/11/2019
