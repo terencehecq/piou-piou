@@ -2,15 +2,17 @@ html, body{
     box-sizing: border-box; 
     margin:0; 
     padding:0;
-    overflow:hidden;
+    // overflow:hidden;
+    background-color: #000;
 }
 
 body{
     background-image: url(../img/night-sky.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    height:100vh;
+    min-height:100vh;
     font-family: 'Press Start 2P', cursive;
+    padding-bottom: 30px;
     
 }
 
@@ -53,6 +55,17 @@ canvas{
     margin:auto;
     border: 6px double white;
     border-radius:3px;
+
+    @media only screen and (max-width : 700px),(orientation : portrait){
+        width : 95vw;
+        
+    };
+    @media only screen and (max-width : 700px ),(orientation : landscape){
+        width : 95vw;
+        height:90vh;
+        
+    };
+    
 }
 
 div.header{
@@ -61,12 +74,13 @@ div.header{
     justify-content: space-between;
     font-size: 1.1rem;
     color:white;
-    margin:20px auto 0;
+    margin:0 auto 10px;
+    padding-top:10px
 }
 
 table{
     width:700px;
-    margin:20px auto;
+    margin:20px auto 0;
     border-collapse: collapse;
     line-height:1.5rem;
 
@@ -116,3 +130,4 @@ div.form{
         border-color:#40cfbc;
     }
 }
+

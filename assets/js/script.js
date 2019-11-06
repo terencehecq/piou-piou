@@ -132,7 +132,8 @@ function game(){
 
         // --- Barre d'espace --- //
         if(key == 32){
-            
+            e.preventDefault(); // empèche le scroll en appuyant sur "espace"
+
             // Initialisation de la position du projectile en fct de la position à ce moment du vaisseau
             let BY = VY-32;
             let BX = VX+20;
