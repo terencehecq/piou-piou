@@ -24,7 +24,7 @@ div.start{
     justify-content: center;
 
     p{
-        display:none;
+        visibility:hidden;
         align-self:center;
         color:yellow;
         margin-bottom: 40px;
@@ -89,7 +89,7 @@ table{
 
 div.form{
     margin:40px auto 0;
-    display:none;
+    visibility:hidden;
 
     input{
         margin:0;

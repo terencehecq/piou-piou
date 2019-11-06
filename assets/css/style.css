@@ -32,7 +32,7 @@ div.start {
 }
 
 div.start p {
-  display: none;
+  visibility: hidden;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -104,7 +104,7 @@ table .rank {
 
 div.form {
   margin: 40px auto 0;
-  display: none;
+  visibility: hidden;
 }
 
 div.form input {
