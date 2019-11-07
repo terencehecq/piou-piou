@@ -188,7 +188,7 @@ function game(){
 
 
     // ----- Jeu en mobile ----- //
-        // window.addEventListener("touchend", (e)=>{e.preventDefault()})
+    
         window.addEventListener("dblclick", (e)=>{e.preventDefault()})
         
         // --- Flèche de gauche --- //
@@ -263,7 +263,7 @@ function game(){
                         return; // Arrêter la fonction en cours
                     }
                 }
-            },25gi); // Interval de déplacement du projectile
+            },25); // Interval de déplacement du projectile
         })
 
 
