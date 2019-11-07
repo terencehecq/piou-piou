@@ -6,12 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Piou Piou</title>
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <script src="https://kit.fontawesome.com/cf5b420eb5.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
 
+    <h1>Piou Piou</h1>
     <div class="header">
-        <p>Piou Piou</p>
         <p>Score : <span id="score">0</span></p>
         <p id="chrono">00' 00" 000</p>
     </div>
@@ -26,6 +27,14 @@
         </div>
     </div>
     <canvas id="canvas" width="700px" height="400px"></canvas>
+
+    <div class="mobile-commands">
+        <button class="mobile-button" id="shoot"><i class="fas fa-meteor"></i></button>
+       <div class="mobile-arrows">
+            <button class="mobile-button" id="left"><i class="far fa-arrow-alt-circle-left"></i></button>
+            <button class="mobile-button" id="right"><i class="far fa-arrow-alt-circle-right"></i></button>
+       </div>
+    </div>
 
     <table>
         <thead>

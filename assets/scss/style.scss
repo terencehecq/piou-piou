@@ -1,3 +1,5 @@
+*{box-sizing:border-box}
+
 html, body{
     box-sizing: border-box; 
     margin:0; 
@@ -16,6 +18,31 @@ body{
     
 }
 
+h1{
+    margin:0;
+    padding-top:10px;
+    font-size: 1.5rem;
+    color:white;
+    text-align:center;
+}
+
+div.header{
+    width: 650px;
+    display:flex;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    color:white;
+    margin:0 auto 10px;
+    padding-top:10px;
+
+    @media only screen and (max-width: 700px){
+        width:100%;
+        font-size: 0.9rem;
+        padding: 0 2%;
+        margin:0;
+    }
+}
+
 div.start{
     position: absolute;
     flex-direction: column;
@@ -25,9 +52,16 @@ div.start{
     display:flex;
     justify-content: center;
 
+    @media only screen and (max-width: 700px){
+        height:57vw;
+        font-size: 0.8rem;
+    }
+
     p{
         visibility:hidden;
         align-self:center;
+        text-align:center;
+        line-height: 1.2rem;
         color:yellow;
         margin-bottom: 40px;
     }
@@ -57,32 +91,58 @@ canvas{
     border-radius:3px;
 
     @media only screen and (max-width : 700px),(orientation : portrait){
-        width : 95vw;
-        
-    };
-    @media only screen and (max-width : 700px ),(orientation : landscape){
-        width : 95vw;
-        height:90vh;
+        width : 100vw;
+        // height:40vh;
         
     };
     
 }
 
-div.header{
-    width: 650px;
-    display:flex;
-    justify-content: space-between;
-    font-size: 1.1rem;
-    color:white;
-    margin:0 auto 10px;
-    padding-top:10px
+
+.mobile-commands{
+    display:none;
+    margin:auto;
+    padding:5px;
+
+    @media only screen and (max-width : 700px){
+        display:flex;
+        background-color: rgba(255,255,255,0.4);
+        border:6px double white;
+        border-radius: 4px;
+        justify-content: space-between;
+        bottom:0;
+        left:0;
+        width:100vw;
+        margin-top:-6px;
+    };
+
+    .mobile-arrows{
+        display:flex;
+
+    }
+    
+    .mobile-button{
+        color:white;
+        background-color: transparent;
+        border:none;
+        width:20vw;
+        font-size: 3rem;
+    }
+        
 }
+
 
 table{
     width:700px;
     margin:20px auto 0;
     border-collapse: collapse;
     line-height:1.5rem;
+
+    @media only screen and (max-width: 700px){
+        width:96%;
+        font-size: 0.7rem;
+        margin:10% 2%;
+    }
 
     th{
         margin:0;
@@ -93,12 +153,19 @@ table{
     td{
         border:2px solid white;
         color:white;
+        padding:1px 5px;
     }
 
     .rank{
         width:5%;
         text-align:center;
+
+        @media only screen and (max-width: 700px){
+            width:7%;
+        }
     }
+
+
 }
 
 div.form{

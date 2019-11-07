@@ -184,6 +184,104 @@ function game(){
             },30); // Interval de déplacement du projectile
         }
     })
+
+
+
+    // ----- Jeu en mobile ----- //
+        
+        // --- Flèche de gauche --- //
+        document.getElementById("left").addEventListener("mousedown", ()=>{
+            let moveLeft = setInterval(() => {
+
+                document.getElementById("left").addEventListener("mouseup", ()=>{
+                    clearInterval(moveLeft)
+                })
+
+                if(VX > 9){
+                    VX = VX-18;
+                    ctx.clearRect(0, VY, canvas.width, 60);
+                    setVaisseau = ctx.drawImage(vaisseau, VX,VY);
+                }
+
+            }, 70);
+        });
+
+        // --- Flèche de droite --- //
+        document.getElementById("right").addEventListener("mousedown", ()=>{
+            let moveRight = setInterval(() => {
+
+                document.getElementById("right").addEventListener("mouseup", ()=>{
+                    clearInterval(moveRight)
+                })
+
+                if(VX < X-59){
+                    VX = VX+18;
+                    ctx.clearRect(0, VY, canvas.width, 60);
+                    setVaisseau = ctx.drawImage(vaisseau, VX,VY);
+                }
+
+            }, 70);
+        });
+
+        // --- Barre d'espace --- //
+        document.getElementById("shoot").addEventListener("click", ()=>{
+            // e.preventDefault(); // empèche le scroll en appuyant sur "espace"
+
+            // Initialisation de la position du projectile en fct de la position à ce moment du vaisseau
+            let BY = VY-32;
+            let BX = VX+20;
+            fire.currentTime = 0; // réinitialiser le son joué 
+            fire.play(); // jouer le son "fire"
+
+
+            // ----- Fonction du déplacement du projectile ----- //
+            let bulletShot = setInterval(()=>{ 
+                if(BY > -32){ // Déplacement si il est toujours dans le canvas (-32 pour qu'il soit entièrement en dehors)
+                    ctx.clearRect(BX, BY, 11, 32);
+                    ctx.drawImage(bullet, BX,BY);
+                    
+                    BY = BY-10;
+                } else{ // S'il est sorti, on arrête la fct qui le fait se déplacer
+                    clearInterval(bulletShot);
+                }
+
+                // Actions à exécuter si la cible est touchée (si la pos du projectile coïncide avec elle)
+                if(BX > CX-10 && BX <CX+70 && BY<CY+15){ 
+                    score +=1; // Incrémenter le score
+                    shot.currentTime = 0; // réinitialiser le son "shot"
+                    shot.play(); // Jouer le son "shot"
+                    setScore.innerHTML = score; // Afficher le nouveau score
+                    clearInterval(bulletShot); // Arrêter le déplacement du projectile
+                    ctx.clearRect(BX, BY, 11, 32); // Effacer le projectile
+                    ctx.clearRect(0, 0, canvas.width, 30); // Effacer la cible
+                    CX = parseInt(Math.random()*630); // Définir une nouvelle position X de la cible au hasard
+                    setTarget(); // Afficher une nouvelle cible
+                    
+                    // Actions à exécuter si le score fixé (scoreToGet) est atteint
+                    if (score == scoreToGet){ 
+                        clearInterval(time); // Arrêter le chrono
+                        ctx.clearRect(0, 0, canvas.width, 340); // Effacer le canvas sauf le vaisseau
+                        document.getElementById("button").innerHTML = "Restart"; // Changer la valeur du bouton
+                        // Afficher le bouton, le temps de fin et le formulaire pour les scores
+                        document.getElementById("start-game").style.visibility = "visible";
+                        document.getElementById("time").style.visibility = "visible";
+                        document.getElementById("form").style.visibility = "visible";
+                        document.getElementById("timeHere").innerHTML = toShow; 
+                        document.getElementById("name").focus(); // autofocus sur le champs de formulaire
+                        window.removeEventListener("keydown", playing); // Empêcher les commandes du vaisseau
+                        startSound.play(); // Jouer le son "play"
+
+                        return; // Arrêter la fonction en cours
+                    }
+                }
+            },30); // Interval de déplacement du projectile
+        })
+
+
+
+
+
+
     
 
     // Fonction qui met les scores dans le Local Storage
