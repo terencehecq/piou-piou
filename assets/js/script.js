@@ -190,7 +190,7 @@ function game(){
     // ----- Jeu en mobile ----- //
         
         // --- Flèche de gauche --- //
-        document.getElementById("left").addEventListener("touchstart", ()=>{
+        document.getElementById("left").addEventListener("click", ()=>{
          
             if(VX > 9){
                 VX = VX-18;
@@ -200,7 +200,7 @@ function game(){
         });
 
         // --- Flèche de droite --- //
-        document.getElementById("right").addEventListener("touchstart", ()=>{
+        document.getElementById("right").addEventListener("click", ()=>{
            
                 if(VX < X-59){
                     VX = VX+18;
@@ -210,7 +210,7 @@ function game(){
         });
 
         // --- Barre d'espace --- //
-        document.getElementById("shoot").addEventListener("touchstart", ()=>{
+        document.getElementById("shoot").addEventListener("click", ()=>{
             // e.preventDefault(); // empèche le scroll en appuyant sur "espace"
 
             // Initialisation de la position du projectile en fct de la position à ce moment du vaisseau
