@@ -191,36 +191,22 @@ function game(){
         
         // --- Flèche de gauche --- //
         document.getElementById("left").addEventListener("touchstart", ()=>{
-            let moveLeft = setInterval(() => {
-
-                document.getElementById("left").addEventListener("touchend", ()=>{
-                    clearInterval(moveLeft)
-                })
-
-                if(VX > 9){
-                    VX = VX-18;
-                    ctx.clearRect(0, VY, canvas.width, 60);
-                    setVaisseau = ctx.drawImage(vaisseau, VX,VY);
-                }
-
-            }, 70);
+         
+            if(VX > 9){
+                VX = VX-18;
+                ctx.clearRect(0, VY, canvas.width, 60);
+                setVaisseau = ctx.drawImage(vaisseau, VX,VY);
+            }
         });
 
         // --- Flèche de droite --- //
         document.getElementById("right").addEventListener("touchstart", ()=>{
-            let moveRight = setInterval(() => {
-
-                document.getElementById("right").addEventListener("touchend", ()=>{
-                    clearInterval(moveRight)
-                })
-
+           
                 if(VX < X-59){
                     VX = VX+18;
                     ctx.clearRect(0, VY, canvas.width, 60);
                     setVaisseau = ctx.drawImage(vaisseau, VX,VY);
                 }
-
-            }, 70);
         });
 
         // --- Barre d'espace --- //
