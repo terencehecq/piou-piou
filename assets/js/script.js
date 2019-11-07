@@ -195,7 +195,7 @@ function game(){
         document.getElementById("left").addEventListener("click", ()=>{
          
             if(VX > 9){
-                VX = VX-18;
+                VX = VX-25;
                 ctx.clearRect(0, VY, canvas.width, 60);
                 setVaisseau = ctx.drawImage(vaisseau, VX,VY);
             }
@@ -206,7 +206,7 @@ function game(){
         document.getElementById("right").addEventListener("click", ()=>{
            
                 if(VX < X-59){
-                    VX = VX+18;
+                    VX = VX+25;
                     ctx.clearRect(0, VY, canvas.width, 60);
                     setVaisseau = ctx.drawImage(vaisseau, VX,VY);
                 }
@@ -263,7 +263,7 @@ function game(){
                         return; // Arrêter la fonction en cours
                     }
                 }
-            },30); // Interval de déplacement du projectile
+            },25gi); // Interval de déplacement du projectile
         })
 
 
