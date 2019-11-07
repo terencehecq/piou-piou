@@ -188,9 +188,8 @@ function game(){
 
 
     // ----- Jeu en mobile ----- //
-        document.getElementById("left").addEventListener("dblclick", (e)=>{e.preventDefault()})
-        document.getElementById("right").addEventListener("dblclick", (e)=>{e.preventDefault()})
-        document.getElementById("shoot").addEventListener("dblclick", (e)=>{e.preventDefault()})
+        window.addEventListener("touchend", (e)=>{e.preventDefault()})
+        window.addEventListener("dblclick", (e)=>{e.preventDefault()})
         
         // --- Flèche de gauche --- //
         document.getElementById("left").addEventListener("click", ()=>{
