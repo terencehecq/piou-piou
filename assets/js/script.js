@@ -188,6 +188,9 @@ function game(){
 
 
     // ----- Jeu en mobile ----- //
+        document.getElementById("left").addEventListener("dblclick", (e)=>{e.preventDefault()})
+        document.getElementById("right").addEventListener("dblclick", (e)=>{e.preventDefault()})
+        document.getElementById("shoot").addEventListener("dblclick", (e)=>{e.preventDefault()})
         
         // --- Flèche de gauche --- //
         document.getElementById("left").addEventListener("click", ()=>{
@@ -198,6 +201,7 @@ function game(){
                 setVaisseau = ctx.drawImage(vaisseau, VX,VY);
             }
         });
+        
 
         // --- Flèche de droite --- //
         document.getElementById("right").addEventListener("click", ()=>{
