@@ -156,6 +156,10 @@ canvas {
   font-size: 3rem;
 }
 
+.mobile-commands .fa-meteor {
+  color: #3eb9cf;
+}
+
 table {
   width: 700px;
   margin: 20px auto 0;
