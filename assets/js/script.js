@@ -190,10 +190,10 @@ function game(){
     // ----- Jeu en mobile ----- //
         
         // --- Flèche de gauche --- //
-        document.getElementById("left").addEventListener("mousedown", ()=>{
+        document.getElementById("left").addEventListener("touchstart", ()=>{
             let moveLeft = setInterval(() => {
 
-                document.getElementById("left").addEventListener("mouseup", ()=>{
+                document.getElementById("left").addEventListener("touchend", ()=>{
                     clearInterval(moveLeft)
                 })
 
@@ -207,10 +207,10 @@ function game(){
         });
 
         // --- Flèche de droite --- //
-        document.getElementById("right").addEventListener("mousedown", ()=>{
+        document.getElementById("right").addEventListener("touchstart", ()=>{
             let moveRight = setInterval(() => {
 
-                document.getElementById("right").addEventListener("mouseup", ()=>{
+                document.getElementById("right").addEventListener("touchend", ()=>{
                     clearInterval(moveRight)
                 })
 
@@ -224,7 +224,7 @@ function game(){
         });
 
         // --- Barre d'espace --- //
-        document.getElementById("shoot").addEventListener("click", ()=>{
+        document.getElementById("shoot").addEventListener("touchstart", ()=>{
             // e.preventDefault(); // empèche le scroll en appuyant sur "espace"
 
             // Initialisation de la position du projectile en fct de la position à ce moment du vaisseau
